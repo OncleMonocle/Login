@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUNKAR</title>
+    <link rel="stylesheet" href="/indexStyle.css">
+</head>
+
+<body>
+
+    <h1>ERIK ÄR SÄMST PÅ JAVA</h1>
+    <div class="containerDiv">
+        <div th:each="product: ${productList}" class="productDiv">
+            <div class="productImageDiv">
+                <img th:src="@{${product.pictureUrl}}" alt="bild">
+            </div>
+            <div class="productInfo"><span th:text="${product.name}"></span><br><span th:text="${product.price}"></span> Kr</div>
+        </div>
+    </div>
+    
+</body>
+</html>
