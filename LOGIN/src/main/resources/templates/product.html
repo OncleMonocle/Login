@@ -21,6 +21,8 @@
 			<div class="productDiscription">
 				<span th:text="${product.description}"></span>
 			</div>
+			<button sec:authorize="isAuthenticated()">Lägg till i varukorg</button>
 		</div>
+
 </body>
 </html>

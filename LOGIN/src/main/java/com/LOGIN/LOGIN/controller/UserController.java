@@ -1,7 +1,5 @@
 package com.LOGIN.LOGIN.controller;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.LOGIN.LOGIN.model.Product;
 import com.LOGIN.LOGIN.model.User;
 import com.LOGIN.LOGIN.repository.ProductRepository;
 import com.LOGIN.LOGIN.repository.UserRepository;
@@ -68,5 +65,15 @@ public class UserController {
         model.addAttribute("product", productRepository.findById(id).get());
         System.out.println("produkt");
         return "product.html";
+    }
+
+    @GetMapping ("/myOrders")
+    public String myOrders () {
+        return "myOrders.html";
+    }
+
+    @GetMapping ("/accessDenied")
+    public String getAccessDenied () {
+        return "redirect:/";
     }
 }

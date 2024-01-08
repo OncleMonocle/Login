@@ -5,9 +5,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.access.AccessDeniedHandler;
 
 import com.LOGIN.LOGIN.service.JpaUserDetailService;
 
@@ -26,11 +26,11 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable()).authorizeHttpRequests(auth -> auth
         .requestMatchers("/myOrders").authenticated()
-        .requestMatchers("/order").authenticated()
         .anyRequest().permitAll()
         )
         .userDetailsService(jpaUserDetailService)
-        .formLogin(Customizer.withDefaults());
+        .formLogin(Customizer.withDefaults())
+        .exceptionHandling().accessDeniedHandler(accessDeniedHandler());
 
         return http.build();
     }
@@ -39,4 +39,10 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+    @Bean
+    public AccessDeniedHandler accessDeniedHandler(){
+    return new CustomAccessDeniedHandler();
+}
+
 }

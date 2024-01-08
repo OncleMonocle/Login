@@ -2,10 +2,12 @@
 .containerDiv {
     position: relative;
     width: auto;
+    height: auto;
     border-color: black;
     border-width: 2px;
     border-style: solid;
-    display: flex;
+    display:flex;
+    flex-wrap: wrap;
 }
 
 .productDiv {
