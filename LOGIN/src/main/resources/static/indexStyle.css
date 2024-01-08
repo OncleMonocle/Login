@@ -35,6 +35,15 @@
     font-size: 17px;
 }
 
+.productDiscription {
+    padding: 5px;
+    margin-top: 20px;
+    display: flex;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+}
+
 body {
     background-color:grey;
 
