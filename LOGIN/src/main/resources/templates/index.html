@@ -4,17 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FUNKAR</title>
-    <link rel="stylesheet" href="/indexStyle.css">
+    <link rel="stylesheet" href="indexStyle.css">
 </head>
 
 <body>
 
-    <h1>ERIK ÄR SÄMST PÅ JAVA</h1>
+
+    <h1>Kattbutiken</h1>
+    <a href="/logout" sec:authorize="isAuthenticated()" ><button>Logga ut</button></a>
+    <a href="/myOrders" sec:authorize="isAuthenticated()" ><button>Se mina ordrar</button></a>
+
+    <a href="/login" sec:authorize="isAnonymous()" ><button>Logga in</button></a>
+    <a href="/register" sec:authorize="isAnonymous()" ><button>Registrera sig</button></a>
+
     <div class="containerDiv">
         <div th:each="product: ${productList}" class="productDiv">
-            <div class="productImageDiv">
-                <img th:src="@{${product.pictureUrl}}" alt="bild">
-            </div>
+            <a th:href="@{/product/(id=${product.id})}">
+                <div class="productImageDiv">
+                    <img th:src="@{${product.pictureUrl}}" alt="bild">
+                </div>
+            </a>
             <div class="productInfo"><span th:text="${product.name}"></span><br><span th:text="${product.price}"></span> Kr</div>
         </div>
     </div>
