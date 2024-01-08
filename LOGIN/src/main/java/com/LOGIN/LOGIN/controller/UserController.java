@@ -1,10 +1,6 @@
 package com.LOGIN.LOGIN.controller;
 
-import java.time.LocalDateTime;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,9 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.LOGIN.LOGIN.model.User;
 import com.LOGIN.LOGIN.repository.ProductRepository;
 import com.LOGIN.LOGIN.repository.UserRepository;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 
@@ -37,9 +30,11 @@ public class UserController {
     public UserController (UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-    
-    @Autowired
-    private PasswordEncoder bcryptEncoder;
+
+    @GetMapping ("/register")
+    public String showRegisterPage () {
+        return "registerPage.html";
+    }
 
     @GetMapping ("/")
     public String index (Model model) {
