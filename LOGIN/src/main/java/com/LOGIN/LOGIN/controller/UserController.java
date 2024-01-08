@@ -1,14 +1,18 @@
 package com.LOGIN.LOGIN.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.LOGIN.LOGIN.model.Product;
 import com.LOGIN.LOGIN.model.User;
 import com.LOGIN.LOGIN.repository.ProductRepository;
 import com.LOGIN.LOGIN.repository.UserRepository;
@@ -59,4 +63,10 @@ public class UserController {
 		return "redirect:/";
 	}
    
+    @GetMapping ("/product/{id}")
+    public String productDiscription (@PathVariable int id,Model model) {
+        model.addAttribute("product", productRepository.findById(id).get());
+        System.out.println("produkt");
+        return "product.html";
+    }
 }

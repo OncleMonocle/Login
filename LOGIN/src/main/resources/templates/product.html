@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Produktinfo</title>
+	<link rel="stylesheet" href="/indexStyle.css">
+
+</head>
+<body>
+		<div class="productDiv">
+            <div class="productImageDiv">
+                    <img th:src="@{${product.pictureUrl}}" alt="bild">
+            </div>
+
+            <div class="productInfo">
+				<span th:text="${product.name}"></span><br>
+				<span th:text="${product.price}"></span>Kr
+			</div>
+		
+			<div class="productDiscription">
+				<span th:text="${product.description}"></span>
+			</div>
+		</div>
+</body>
+</html>

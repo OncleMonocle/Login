@@ -19,7 +19,7 @@
 
     <div class="containerDiv">
         <div th:each="product: ${productList}" class="productDiv">
-            <a th:href="@{/product/(id=${product.id})}">
+            <a th:href="@{/product/{id}(id=${product.id})}">
                 <div class="productImageDiv">
                     <img th:src="@{${product.pictureUrl}}" alt="bild">
                 </div>
