@@ -42,7 +42,7 @@ public class UserController {
         model.addAttribute("productList", productRepository.findAll());
         return "index.html";
     }
-
+   
     @PostMapping("/registerUser")
     public String registerUser (@RequestParam("firstName") String firstName,@RequestParam("lastName") String lastName, @RequestParam("email") String email, @RequestParam ("username") String username, @RequestParam ("password") String password){
 		User user = new User();
@@ -72,8 +72,8 @@ public class UserController {
         return "myOrders.html";
     }
 
-    @GetMapping ("/accessDenied")
-    public String getAccessDenied () {
-        return "redirect:/";
-    }
+    // @GetMapping ("/accessDenied")
+    // public String getAccessDenied () {
+    //     return "redirect:/";
+    // }
 }
