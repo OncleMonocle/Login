@@ -9,14 +9,16 @@
 
 <body>
 
+    <div id="knapparIndexSida">
+        <a href="/logout" sec:authorize="isAuthenticated()" ><button>Logga ut</button></a>
+        <a href="/myOrders" sec:authorize="isAuthenticated()" ><button>Se mina ordrar</button></a>
 
-    <h1>Kattbutiken</h1>
-    <a href="/logout" sec:authorize="isAuthenticated()" ><button>Logga ut</button></a>
-    <a href="/myOrders" sec:authorize="isAuthenticated()" ><button>Se mina ordrar</button></a>
-
-    <a href="/login" sec:authorize="isAnonymous()" ><button>Logga in</button></a>
-    <a href="/register" sec:authorize="isAnonymous()" ><button>Registrera sig</button></a>
-
+        <a href="/login" sec:authorize="isAnonymous()" ><button>Logga in</button></a>
+        <a href="/register" sec:authorize="isAnonymous()" ><button>Registrera konto</button></a>
+    </div>
+    <div id="kattRubrik"><h1>Kattbutiken</h1></div>
+    
+    <div id="produkterRubrik"><h1>Våra produkter:</h1></div>
     <div class="containerDiv">
         <div th:each="product: ${productList}" class="productDiv">
             <a th:href="@{/product/{id}(id=${product.id})}">

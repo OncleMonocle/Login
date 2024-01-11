@@ -1,13 +1,15 @@
 
 .containerDiv {
     position: relative;
-    width: auto;
+    width: 582px;
     height: auto;
     border-color: black;
     border-width: 2px;
     border-style: solid;
     display:flex;
     flex-wrap: wrap;
+    margin-left: 200px;
+    margin-top: 20px;
 }
 
 .productDiv {
@@ -47,6 +49,84 @@
 }
 
 body {
-    background-color:grey;
+    background-image: url("Images/kattbakgrund.jpg");
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 10%;
 
+}
+
+#kattRubrik {
+    text-align: center;
+    margin-top: -50px;
+    
+    
+    
+}
+
+
+#kattRubrik h1 {
+   
+    font-size: 80px;
+    border-bottom: 2px solid black;
+  display: inline-block;
+  padding-bottom: 0px; 
+    
+    
+}
+#registreringsDiv {
+    width: 300px;
+  height: 100px;
+  padding: 150px;
+  border: 1px solid red;
+}
+#användarInformationsDiv {
+    grid-template-rows: auto;
+    display: grid;
+    width: 400px;
+    height: 600px;
+    border: 1px solid black;
+    border-radius: 5px;
+    justify-content: center;
+    font-size: 30px;
+    padding: 0;
+    margin-left: 400px;
+    
+    
+}
+#registreringsRubrik {
+    margin-left: 400px;
+    font-size: 30px;
+}
+#knappFörRegistrering {
+    margin-left: 810px;
+    margin-top: -70px;
+   width: 50px;
+   
+}
+#knappFörRegistrering button {
+    width: 160px;
+    height: 70px;
+    font-size: 25px;
+}
+#användarInformationsDiv input {
+    width: 350px;
+    height: 30px;
+}
+#användarInformationsDiv label {
+    
+}
+#knapparIndexSida {
+    display: flex;
+    
+    
+}
+#knapparIndexSida button {
+    margin-left: 15px;
+    width: 160px;
+    height: 70px;
+    font-size: 25px;
+}
+#produkterRubrik {
+    margin-left: 200px;
 }
