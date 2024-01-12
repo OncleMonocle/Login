@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 
 @Entity
 public class User {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -16,10 +16,11 @@ public class User {
     private String email;
     private String username;
     private String password;
-    
-    public User () {}
 
-    public User (String firstName, String lastName, String email, String username, String password) {
+    public User() {
+    }
+
+    public User(String firstName, String lastName, String email, String username, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -75,5 +76,4 @@ public class User {
         this.id = id;
     }
 
-    
 }
