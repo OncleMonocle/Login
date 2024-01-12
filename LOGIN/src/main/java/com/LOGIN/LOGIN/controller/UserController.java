@@ -14,40 +14,40 @@ import com.LOGIN.LOGIN.model.User;
 import com.LOGIN.LOGIN.repository.ProductRepository;
 import com.LOGIN.LOGIN.repository.UserRepository;
 
-
-
 @Controller
 @CrossOrigin
 public class UserController {
 
     @Autowired
     private PasswordEncoder bcryptEncoder;
-    
+
     private final UserRepository userRepository;
 
     @Autowired
     private ProductRepository productRepository;
 
-    public UserController (UserRepository userRepository) {
+    public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    @GetMapping ("/register")
-    public String showRegisterPage () {
+    @GetMapping("/register")
+    public String showRegisterPage() {
         return "registerPage.html";
     }
 
-    @GetMapping ("/")
-    public String index (Model model) {
+    @GetMapping("/")
+    public String index(Model model) {
         model.addAttribute("productList", productRepository.findAll());
         return "index.html";
     }
-   
-    @PostMapping("/registerUser")
-    public String registerUser (@RequestParam("firstName") String firstName,@RequestParam("lastName") String lastName, @RequestParam("email") String email, @RequestParam ("username") String username, @RequestParam ("password") String password){
-		User user = new User();
 
-		user.setUsername(username);
+    @PostMapping("/registerUser")
+    public String registerUser(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName,
+            @RequestParam("email") String email, @RequestParam("username") String username,
+            @RequestParam("password") String password) {
+        User user = new User();
+
+        user.setUsername(username);
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setEmail(email);
@@ -55,25 +55,19 @@ public class UserController {
         user.setPassword(encryptedPassword);
         userRepository.save(user);
 
-        
+        return "redirect:/";
+    }
 
-		return "redirect:/";
-	}
-   
-    @GetMapping ("/product/{id}")
-    public String productDiscription (@PathVariable int id,Model model) {
+    @GetMapping("/product/{id}")
+    public String productDiscription(@PathVariable int id, Model model) {
         model.addAttribute("product", productRepository.findById(id).get());
         System.out.println("produkt");
         return "product.html";
     }
 
-    @GetMapping ("/myOrders")
-    public String myOrders () {
+    @GetMapping("/myOrders")
+    public String myOrders() {
         return "myOrders.html";
     }
 
-    // @GetMapping ("/accessDenied")
-    // public String getAccessDenied () {
-    //     return "redirect:/";
-    // }
 }
